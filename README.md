@@ -1,71 +1,57 @@
-# Aloy - Desktop Application
+# 🖥️ ALOY Desktop Electron (v1)
 
-## Descrição
-Aloy é um assistente virtual projetado para centralizar e automatizar tarefas do dia a dia. Esta versão do projeto implementa a interface desktop utilizando Electron, permitindo interação direta com o sistema operacional, integração com APIs e suporte a comandos de voz.
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Development-orange?style=for-the-badge" alt="Status">
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/Electron-Latest-47848F?style=for-the-badge&logo=electron" alt="Electron">
+  <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript">
+</p>
 
-## Funcionalidades
-- Interface desktop responsiva e interativa
-- Execução de comandos de voz para automação de tarefas
-- Integração com Notion para criação e organização de notas
-- Conexão com Google Agenda para gerenciamento de compromissos
-- Abertura de aplicativos e sites no PC
-- Envio de lembretes e notificações
-- Monitoramento do sistema e recursos da máquina
-- Integração com assistentes baseados em LLM (LLaMA 3)
-- Suporte a pesquisas na internet
-- Conexão com um bot no Discord para interação remota
+## 🌟 Visão Geral
+O **ALOY Desktop** é a interface central de interação humana do ecossistema ALOY. Desenvolvido em **Electron**, ele serve como o \"Painel de Comando\" que unifica voz, monitoramento de hardware e automação inteligente diretamente no seu PC ou Notebook.
 
-## Tecnologias Utilizadas
-- **Electron** - Construção da interface desktop
-- **Node.js** - Backend principal
-- **LLaMA 3** - Processamento de IA para interação
-- **Google API** - Integração com Agenda
-- **Notion API** - Gerenciamento de notas
-- **Discord API** - Integração com bot para execução remota de comandos
-- **Prometheus & Grafana** - Monitoramento do sistema
-- **Docker** - Contêinerização para serviços auxiliares
+> \"A interface que não apenas executa, mas ajuda você a pensar.\"
 
-## Instalação
+## 🚀 Funcionalidades Premium
+- 🎙️ **Voice First:** Integração com `aloy-stt` e `aloy-tts` para comandos naturais.
+- 📊 **Real-time Monitoring:** Dashboard integrado com `aloy-hardware-monitor`.
+- 🧠 **Socratic Interface:** Modo \"Mentor\" que desafia o usuário com perguntas profundas via NLP.
+- ⚡ **N8N Automation:** Acionamento de rotinas complexas (Work/Game/Study) com um clique.
+- 📱 **Multi-device Sync:** Estado sincronizado entre todos os seus dispositivos via `aloy-orchestrator`.
+
+## 🛠️ Stack Tecnológica
+- **Framework:** Electron + React (Next.js)
+- **Linguagem:** TypeScript
+- **Estilização:** Tailwind CSS
+- **Comunicação:** WebSockets & HTTP (via API Gateway)
+
+## 🏗️ Arquitetura de Conexão
+```mermaid
+graph TD
+    User((Usuário)) --> Electron[ALOY Desktop]
+    Electron --> Gateway[ALOY API Gateway]
+    Gateway --> NLP[ALOY NLP Service]
+    Gateway --> Orchestrator[ALOY Orchestrator]
+    Electron --> HW[Hardware Monitor]
+```
+
+## 📦 Instalação
 1. Clone o repositório:
-   ```sh
-   git clone https://github.com/seuusuario/aloy-electron.git
-   cd aloy-electron
+   ```bash
+   git clone https://github.com/LuisMarchio03/aloy-desktop-electron-v1.git
    ```
 2. Instale as dependências:
-   ```sh
+   ```bash
    npm install
    ```
-3. Inicie a aplicação:
-   ```sh
-   npm start
+3. Configure o `.env` apontando para o seu `ALOY_API_GATEWAY`.
+4. Inicie em modo dev:
+   ```bash
+   npm run dev
    ```
 
-## Estrutura do Projeto
-```
-/aloy-electron
-│   │── /app           # Telas a aplicação
-│   │── /components    # Componentes reutilizáveis
-│   │── /hooks         # Hooks personalizados
-│   │── /lib           # Config. de libs
-│   │── /services      # Integrações com APIs externas
-│   │── /utils         # Funções auxiliares
-│   │── /public        # Arquivos publicos do Next.js
-│   │── /styles        # Estilos personalizados com CSS puro
-│   │── /main          # Config. Electron
-│       └── main.js        # Processo principal do Electron
-│       └── preload.js        # Processo principal do Electron
-│── package.json       # Dependências do projeto
-│── README.md          # Documentação do projeto
-└── .gitignore         # Arquivos ignorados pelo Git
-└── .....Outros arquivos de configuração
-```
+## 🤝 Contribuição
+Este é o front-end core do projeto. Pull Requests para melhorias na UX/UI são extremamente bem-vindos!
 
-## Contribuição
-1. Faça um fork do repositório
-2. Crie uma branch para sua feature (`git checkout -b feature-minha-feature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Envie suas alterações (`git push origin feature-minha-feature`)
-5. Abra um Pull Request
-
-## Licença
-Este projeto está licenciado sob a [MIT License](LICENSE).
+---
+<p align="center">Desenvolvido com ❤️ para um futuro mais produtivo.</p>
