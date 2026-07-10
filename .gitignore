@@ -22,6 +22,15 @@ yarn-error.log*
 # vercel
 .vercel
 
+# build artifacts
+/dist
+
+# personal logs
+DEVLOG-*.md
+
+# unknown
+/900
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
