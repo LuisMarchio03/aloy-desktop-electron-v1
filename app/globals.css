@@ -28,8 +28,14 @@
   --radius: 0.5rem;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   @apply bg-background text-foreground;
+  overflow: hidden;
 }
 
 /* Custom scrollbar */
