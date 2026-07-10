@@ -2,8 +2,25 @@
 
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
+import type { VoiceState } from "@/lib/voice-api"
 
-export default function VoiceVisualizer() {
+const LABELS: Record<string, string> = {
+  idle: "Ocioso",
+  listening: "Ouvindo…",
+  transcribing: "Transcrevendo…",
+  thinking: "Pensando…",
+  speaking: "Falando…",
+}
+
+const DOT: Record<string, string> = {
+  idle: "bg-gray-500",
+  listening: "bg-red-500",
+  transcribing: "bg-yellow-500",
+  thinking: "bg-blue-500",
+  speaking: "bg-purple-500",
+}
+
+export default function VoiceVisualizer({ state = "listening" }: { state?: VoiceState }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -64,14 +81,14 @@ export default function VoiceVisualizer() {
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <motion.div
-            className="w-2 h-2 rounded-full bg-red-500"
+            className={`w-2 h-2 rounded-full ${DOT[state]}`}
             animate={{ opacity: [1, 0.5, 1] }}
             transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
           />
-          <span className="text-xs text-gray-400">RECORDING</span>
+          <span className="text-xs text-gray-400">{LABELS[state]}</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs text-gray-400">RASPBERRY PI MICROPHONE</span>
+          <span className="text-xs text-gray-400">MIC DO SERVIDOR</span>
           <motion.span
             className="w-1.5 h-1.5 rounded-full bg-green-500"
             animate={{ opacity: [1, 0.5, 1] }}
@@ -105,7 +122,7 @@ export default function VoiceVisualizer() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs text-gray-400">SENDING TO PC SERVER</span>
+          <span className="text-xs text-gray-400">PROCESSANDO NO PC</span>
           <motion.div
             className="w-1.5 h-1.5 rounded-full bg-blue-500"
             animate={{ opacity: [1, 0.5, 1] }}
